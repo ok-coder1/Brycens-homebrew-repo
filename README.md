@@ -18,11 +18,11 @@ brew tap BrycensRanch/repo
 Then you can install whatever you need as normal
 
 ```sh
-brew install snapx
+brew install snapx-ui
 ```
 
 ### Bottles (Prebuilt Binaries)
-All software in this tap are distributed with Homebrew bottles (prebuilt binaries) for fast and native installation. These bottles are built for the following platforms:
+All software in this tap is distributed with Homebrew bottles (prebuilt binaries) for fast and native installation. These bottles are built for the following platforms:
 
 - macOS (Intel on macOS 13, Apple Silicon on 15)
 - Ubuntu 24.04 (x86_64, aarch64 (ARM64))
