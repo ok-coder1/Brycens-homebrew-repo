@@ -1,6 +1,7 @@
 class SnapX < Formula
   desc "SnapX is a free, open-source, cross-platform tool that lets you capture or record any area of your screen and instantly share it with a single keypress. Upload images, videos, text, and more to multiple supported destinations — all with ease."
   homepage "https://github.com/BrycensRanch/SnapX"
+  version "0.2.0"
   url "https://github.com/BrycensRanch/SnapX/archive/refs/tags/v0.2.0.tar.gz"
   sha256 "7a163aee1b39a39dd9149a823364fcdf988e6750b0aeb450f8aa15ef4e656d1c"
   license "GPL-3.0"
