@@ -9,28 +9,30 @@ class SnapX < Formula
   depends_on macos: ">= :monterey"
 
   def detect_distro
-    os_release = if File.exist?("/etc/os-release")
-                   File.read("/etc/os-release")
-                 else
-                   Utils.safe_popen_read("lsb_release", "-si").strip
-                 end
-  
-    if os_release.include?("UBUNTU") || os_release.include?("ubuntu") || os_release.include?("Ubuntu")
-      :ubuntu
-    elsif os_release.include?("FEDORA") || os_release.include?("fedora") || os_release.include?("Fedora")
-      :fedora
-    else
-      :unknown
+    on_linux do
+      os_release = if File.exist?("/etc/os-release")
+                    File.read("/etc/os-release")
+                  else
+                    Utils.safe_popen_read("lsb_release", "-si").strip
+                  end
+    
+      if os_release.include?("UBUNTU") || os_release.include?("ubuntu") || os_release.include?("Ubuntu")
+        :ubuntu
+      elsif os_release.include?("FEDORA") || os_release.include?("fedora") || os_release.include?("Fedora")
+        :fedora
+      else
+        :unknown
+      end
     end
   end
 
   def install
-    on_macos do
+    if OS.mac?
       ohai "OS: macOS"
       depends_on "ffmpeg@7"
       depends_on "rust"
     end
-    on_linux do
+    if OS.linux?
       case detect_distro
       when :ubuntu
         ohai "OS: Ubuntu"
