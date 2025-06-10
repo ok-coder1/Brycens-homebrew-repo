@@ -42,7 +42,7 @@ class Snapx < Formula
   def caveats
     <<~EOS
     On Ubuntu, you need to run
-      sudo apt install -y libvlc-dev zlib1g-dev xdg-utils
+      sudo apt install -y libvlc-dev xdg-utils
     On Fedora, you need to run
       sudo dnf in -y vlc-devel xdg-utils
     Additionally, SnapX hasn't been able to create the configuration file(s) it expects.
