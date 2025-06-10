@@ -14,19 +14,15 @@ class Snapx < Formula
   depends_on "ffmpeg@7"
   # NativeAOT support
   depends_on "llvm" => :build
+  depends_on "dotnet" => :build
 
   on_macos do
-    # The .NET SDK Cask has a higher feature band.
-    # Also supports older versions of macOS.
-    depends_on "dotnet-sdk" => :build
     # Screenshotting on macOS is done via a Rust compat layer. We must compile it.
     depends_on "rust" => :build
     # NativeAOT support
     depends_on xcode: :build
   end
   on_linux do
-    # Fallback to dotnet formula that is cross-platform.
-    depends_on "dotnet" => :build
     depends_on "libx11"
     depends_on "libsm"
     depends_on "libxrandr"
