@@ -19,8 +19,6 @@ class Snapx < Formula
   on_macos do
     # Screenshotting on macOS is done via a Rust compat layer. We must compile it.
     depends_on "rust" => :build
-    # NativeAOT support
-    depends_on xcode: :build
   end
   on_linux do
     depends_on "libx11"
