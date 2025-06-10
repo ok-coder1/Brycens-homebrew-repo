@@ -5,7 +5,7 @@
 
 This is the official Homebrew tap for distributing software maintained by Brycen. 
 
-Since our binaries are NOT signed ($100 per year!), this was created as a way to distribute my software regardless. 
+Since my binaries are NOT signed ($100 per year!), this was created as a way to distribute my software regardless. 
 
 ## Installation
 
