@@ -1,0 +1,26 @@
+name: Test Formulae for SnapX
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths: ["Formula/s/snapx.rb"]
+  push:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  brew-test:
+    name: Brew Test
+    runs-on: ubuntu-latest, macos-latest
+    steps:
+        - name: Set up Homebrew
+          id: set-up-homebrew
+          uses: Homebrew/actions/setup-homebrew@master
+
+        - name: Run brew test
+          run: |
+            export HOMEBREW_NO_INSTALL_FROM_API=1
+            brew audit --strict --online snapx
+            brew install --build-from-source --verbose --debug snapx
+            brew test snapx
