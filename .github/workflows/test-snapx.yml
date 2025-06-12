@@ -14,6 +14,7 @@ jobs:
     name: Brew Test
     runs-on: ${{matrix.os}}
     strategy:
+      fail-fast: false
       matrix:
         os: [ ubuntu-latest, macos-latest ]
     steps:
