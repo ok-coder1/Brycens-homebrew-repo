@@ -1,9 +1,9 @@
 name: Test Formulae for SnapX
 on:
-  pull_request:
-    types: [opened, synchronize]
-    paths: ["Formula/s/snapx.rb"]
-  push:
+#  pull_request:
+#    types: [opened, synchronize]
+#    paths: ["Formula/s/snapx.rb"]
+#  push:
   workflow_dispatch:
 
 permissions:
