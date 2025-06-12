@@ -28,4 +28,4 @@ jobs:
             # brew audit --strict --online snapx
             # brew install --build-from-source --verbose --debug snapx
             # brew test snapx
-            brew test-bot
+            brew test-bot snapx
