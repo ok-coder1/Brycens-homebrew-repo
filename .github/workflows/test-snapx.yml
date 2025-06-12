@@ -27,8 +27,8 @@ jobs:
 
         - name: Run brew test
           run: |
-            # export HOMEBREW_NO_INSTALL_FROM_API=1
-            # brew audit --strict --online snapx
-            # brew install --build-from-source --verbose --debug snapx
-            # brew test snapx
+            export HOMEBREW_NO_INSTALL_FROM_API=1
+            brew audit --strict --online snapx
+            brew install --build-from-source --verbose --debug snapx
+            brew test snapx
             brew test-bot snapx
