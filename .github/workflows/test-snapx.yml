@@ -12,16 +12,17 @@ permissions:
 jobs:
   brew-test:
     name: Brew Test
-    runs-on: ubuntu-latest, macos-latest
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
     steps:
         - name: Set up Homebrew
           id: set-up-homebrew
           uses: Homebrew/actions/setup-homebrew@master
 
         - name: Run brew test
+          id: brew-test
           run: |
             export HOMEBREW_NO_INSTALL_FROM_API=1
-            # brew audit --strict --online snapx
-            # brew install --build-from-source --verbose --debug snapx
-            # brew test snapx
-            brew test-bot
+            brew test-bot snapx
