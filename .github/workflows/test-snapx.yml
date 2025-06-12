@@ -4,6 +4,7 @@ on:
     types: [opened, synchronize]
     paths: ["Formula/s/snapx.rb"]
   push:
+  workflow_dispatch:
 
 permissions:
   contents: read
