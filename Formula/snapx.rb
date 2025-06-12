@@ -1,7 +1,7 @@
 class Snapx < Formula
   desc "Screenshot tool that handles images, text, and video (fork of ShareX)"
   homepage "https://github.com/BrycensRanch/SnapX"
-  url "https://github.com/BrycensRanch/SnapX/archive/8bfb7ca.tar.gz"
+  url "https://github.com/BrycensRanch/SnapX/refs/tags/8bfb7ca"
   version "0.2.1"
   sha256 "5687b73dc4cf6db6abdf401a49405197abce9ede4c4ca590b375c015d833286c"
   license "GPL-3.0-or-later"
@@ -9,8 +9,8 @@ class Snapx < Formula
   # Uncomment to bump the package when still using the same SnapX version. Acts like the release field in snapx.spec
   # revision 1
 
-  depends_on "git" => :build
   depends_on "dotnet" => :build
+  depends_on "git" => :build
   depends_on "llvm" => :build
   depends_on "ffmpeg@7"
   # NativeAOT support
@@ -21,8 +21,8 @@ class Snapx < Formula
     depends_on "rust" => :build
   end
   on_linux do
-    depends_on "libsm"
     depends_on "dbus"
+    depends_on "libsm"
     depends_on "libx11"
     depends_on "libxcb"
     depends_on "libxrandr"
@@ -32,11 +32,7 @@ class Snapx < Formula
   def install
     ENV["SKIP_MACOS_VERSION_CHECK"] = "1"
     ENV["ELEVATION_NOT_NEEDED"] = "1"
-    system "./build.sh", "install", "--prefix", "/", "--dest-dir", "#{prefix}"
-  end
-
-  test do
-    system bin/"snapx", "--version"
+    system "./build.sh", "install", "--prefix", "/", "--dest-dir", #{prefix}.to_s
   end
 
   def caveats
@@ -52,5 +48,9 @@ class Snapx < Formula
     On macOS, it's
       ~/Library/Application Support/SnapX
     EOS
+  end
+  
+  test do
+    system bin/"snapx", "--version"
   end
 end
