@@ -13,7 +13,7 @@ permissions:
 jobs:
   brew-test:
     name: Brew Test
-    runs-on: ubuntu-latest, macos-latest
+    runs-on: ubuntu-latest
     steps:
         - name: Set up Homebrew
           id: set-up-homebrew
@@ -21,7 +21,8 @@ jobs:
 
         - name: Run brew test
           run: |
-            export HOMEBREW_NO_INSTALL_FROM_API=1
-            brew audit --strict --online snapx
-            brew install --build-from-source --verbose --debug snapx
-            brew test snapx
+            # export HOMEBREW_NO_INSTALL_FROM_API=1
+            # brew audit --strict --online snapx
+            # brew install --build-from-source --verbose --debug snapx
+            # brew test snapx
+            brew test-bot
