@@ -32,7 +32,7 @@ class Snapx < Formula
   def install
     ENV["SKIP_MACOS_VERSION_CHECK"] = "1"
     ENV["ELEVATION_NOT_NEEDED"] = "1"
-    system "./build.sh", "install", "--prefix", "/", "--dest-dir", #{prefix}.to_s
+    system "./build.sh", "install", "--prefix", "/", "--dest-dir", "#{prefix}"
   end
 
   def caveats
