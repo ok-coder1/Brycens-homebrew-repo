@@ -13,7 +13,10 @@ permissions:
 jobs:
   brew-test:
     name: Brew Test
-    runs-on: ubuntu-latest
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
     steps:
         - name: Set up Homebrew
           id: set-up-homebrew
