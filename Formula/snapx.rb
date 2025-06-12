@@ -3,17 +3,17 @@ class Snapx < Formula
   homepage "https://github.com/BrycensRanch/SnapX"
   url "https://github.com/BrycensRanch/SnapX/archive/8bfb7ca.tar.gz"
   version "0.2.1"
-  head "https://github.com/BrycensRanch/SnapX.git", branch: "develop"
   sha256 "5687b73dc4cf6db6abdf401a49405197abce9ede4c4ca590b375c015d833286c"
+  head "https://github.com/BrycensRanch/SnapX.git", branch: "develop"
   # Uncomment to bump the package when still using the same SnapX version. Acts like the release field in snapx.spec
   # revision 1
   license "GPL-3.0-or-later"
 
   depends_on "git" => :build
-  depends_on "ffmpeg@7"
-  # NativeAOT support
   depends_on "llvm" => :build
   depends_on "dotnet" => :build
+  depends_on "ffmpeg@7"
+  # NativeAOT support
   depends_on macos: :monterey
 
   on_macos do
@@ -23,8 +23,8 @@ class Snapx < Formula
   on_linux do
     depends_on "libsm"
     depends_on "libx11"
-    depends_on "libxcb"
     depends_on "dbus"
+    depends_on "libxcb"
     depends_on "libxrandr"
     depends_on "openssl@3"
   end
@@ -32,7 +32,7 @@ class Snapx < Formula
   def install
     ENV["SKIP_MACOS_VERSION_CHECK"] = "1"
     ENV["ELEVATION_NOT_NEEDED"] = "1"
-    system "./build.sh", "install",  "--prefix", "/", "--dest-dir", "#{prefix}"
+    system "./build.sh", "install", "--prefix", "/", "--dest-dir", "#{prefix}"
   end
 
   test do
