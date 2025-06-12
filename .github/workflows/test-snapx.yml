@@ -30,4 +30,4 @@ jobs:
             # brew audit --strict --online snapx
             # brew install --build-from-source --verbose --debug snapx
             # brew test snapx
-            brew test-bot Formula/s/snapx.rb
+            brew test-bot snapx
