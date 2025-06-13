@@ -10,8 +10,8 @@ permissions:
   pull-requests: read
 
 jobs:
-  brew-test:
-    name: Brew Test
+  brew-test-bot:
+    name: Brew Test Bot
     runs-on: ${{matrix.os}}
     strategy:
       fail-fast: false
